@@ -1,0 +1,12 @@
+{
+  "name": "mern-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
+    "start-backend": "cd backend && npm start",
+    "start-frontend": "cd movie-ticket-booking && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
