@@ -16,7 +16,7 @@ const LoginPage = () => {
     e.preventDefault(); // Prevent page reload
     
     try {
-      const response = await axios.post('http://localhost:5000/api/user/login', {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/user/login`, {
         email,
         password,
       });

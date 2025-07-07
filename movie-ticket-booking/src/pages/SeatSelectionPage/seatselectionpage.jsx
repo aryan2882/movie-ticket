@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import MyBookings from '../MyBookings';
 
 function BookTicketsPage() {
   const location = useLocation();
@@ -20,7 +21,7 @@ function BookTicketsPage() {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/movies');
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/movies`);
         if (!response.ok) throw new Error('Network error');
 
         const data = await response.json();
@@ -85,7 +86,7 @@ function BookTicketsPage() {
     };
 
     try {
-      const res = await fetch('http://localhost:5000/api/bookings/', {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/bookings/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bookingData),
@@ -184,7 +185,7 @@ function BookTicketsPage() {
             <p>{selectedDate}</p>
             <p>Seats: {temporarySelectedSeats.map(s => s + 1).join(', ')}</p>
             <button
-              onClick={() => navigate('/bookings')}
+              onClick={() => navigate('/my-bookings')}
               className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-800 rounded-md"
             >
               View My Bookings

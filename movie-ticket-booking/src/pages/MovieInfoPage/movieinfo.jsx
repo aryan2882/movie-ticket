@@ -13,7 +13,7 @@ function BookTicketsPage() {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/movies`);
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/movies`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
